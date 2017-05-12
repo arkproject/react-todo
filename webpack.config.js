@@ -2,6 +2,7 @@
 const loaders = require('./webpack-loaders');
 const plugins = require('./webpack-plugins');
 const PATHS = require('./webpack-paths');
+const path = require('path');
 
 
 const config = {
@@ -31,8 +32,9 @@ const config = {
   ],
   resolve: {
     // no need for the empty string extension anymore
-    modules: [__dirname, 'node_modules'],
+    modules: [__dirname, 'node_modules', path.resolve(__dirname, 'app/components')],
     alias: {
+      // TodoApp: 'app/compoents/TodoApp',
       applicationStyles: 'app/styles/app.scss'
     },
     extensions: ['*', '.js', '.jsx']
