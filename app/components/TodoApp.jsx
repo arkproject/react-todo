@@ -1,5 +1,6 @@
 import React from 'react';
 import uuid  from 'node-uuid';
+import moment from 'moment';
 
 
 import { TodoList } from 'TodoList';
@@ -46,7 +47,9 @@ export class TodoApp extends React.Component {
         {
           id: uuid(),
           text: text,
-          completed: false
+          completed: false,
+          createAt: moment().unix(),
+          completedAt: undefined
         }
       ]
     });
@@ -61,6 +64,7 @@ export class TodoApp extends React.Component {
     const updatedTodos = this.state.todos.map((todo) => {
       if (todo.id === id) {
         todo.completed = !todo.completed;
+        todo.completedAt = todo.completed ? moment().unix() : undefined;
       }
       return todo;
     });
@@ -72,9 +76,16 @@ export class TodoApp extends React.Component {
     const filteredTodos = TodoAPI.filterTodos(todos, showCompleted, searchText)
         return (
       <div>
-        <TodoSearch onSearch={this.handleSearch.bind(this)} />
-        <TodoList todos={filteredTodos} onToggle={this.handleToggle.bind(this)} />
-        <AddTodo onAddTodo={this.handleAddTodo.bind(this)} />
+        <h1 className='page-title'>Todo app</h1>
+        <div className="row">
+          <div className="column small-centered small-11 medium-6 large-5">
+            <div className="container">
+              <TodoSearch onSearch={this.handleSearch.bind(this)} />
+              <TodoList todos={filteredTodos} onToggle={this.handleToggle.bind(this)} />
+              <AddTodo onAddTodo={this.handleAddTodo.bind(this)} />
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
