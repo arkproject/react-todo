@@ -1,5 +1,5 @@
 {
-  "name": "Reactboilerplate3",
+  "name": "ReactTodoApp",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -39,6 +39,7 @@
     "karma-webpack": "^2.0.3",
     "mocha": "^3.3.0",
     "node-sass": "^4.5.2",
+    "node-uuid": "^1.4.8",
     "react-addons-test-utils": "^15.5.1",
     "react-docgen": "^2.15.0",
     "sass-loader": "^6.0.3",

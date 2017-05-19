@@ -32,7 +32,7 @@ const config = {
   ],
   resolve: {
     // no need for the empty string extension anymore
-    modules: [__dirname, 'node_modules', path.resolve(__dirname, 'app/components')],
+    modules: [__dirname, 'node_modules', path.resolve(__dirname, 'app/components'), path.resolve(__dirname, 'app/api')],
     alias: {
       // TodoApp: 'app/compoents/TodoApp',
       applicationStyles: 'app/styles/app.scss'
